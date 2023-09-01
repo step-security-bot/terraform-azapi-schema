@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,55 +6,19 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azapiUpdateResource = `{
+const azapiResourceId = `{
   "block": {
     "attributes": {
-      "body": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ignore_body_changes": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "ignore_casing": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "ignore_missing_property": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "locks": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
       "name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "output": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "parent_id": {
@@ -63,19 +27,34 @@ const azapiUpdateResource = `{
         "optional": true,
         "type": "string"
       },
+      "parts": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "provider_namespace": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "resource_group_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "response_export_values": {
+      "subscription_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
       },
       "type": {
         "description_kind": "plain",
@@ -87,22 +66,7 @@ const azapiUpdateResource = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -118,8 +82,8 @@ const azapiUpdateResource = `{
   "version": 0
 }`
 
-func AzapiUpdateResourceSchema() *tfjson.Schema {
+func AzapiResourceIdSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azapiUpdateResource), &result)
+	_ = json.Unmarshal([]byte(azapiResourceId), &result)
 	return &result
 }

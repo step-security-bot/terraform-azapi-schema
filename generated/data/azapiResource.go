@@ -31,6 +31,7 @@ const azapiResource = `{
         "type": "string"
       },
       "parent_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

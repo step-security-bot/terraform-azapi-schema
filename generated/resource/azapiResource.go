@@ -20,6 +20,14 @@ const azapiResource = `{
         "optional": true,
         "type": "string"
       },
+      "ignore_body_changes": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "ignore_casing": {
         "description_kind": "plain",
         "optional": true,
@@ -56,8 +64,9 @@ const azapiResource = `{
         "type": "string"
       },
       "parent_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "removing_special_chars": {

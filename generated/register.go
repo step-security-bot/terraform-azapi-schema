@@ -18,6 +18,8 @@ func init() {
 	resources["azapi_update_resource"] = resource.AzapiUpdateResourceSchema()  
 	dataSources["azapi_resource"] = data.AzapiResourceSchema()  
 	dataSources["azapi_resource_action"] = data.AzapiResourceActionSchema()  
+	dataSources["azapi_resource_id"] = data.AzapiResourceIdSchema()  
+	dataSources["azapi_resource_list"] = data.AzapiResourceListSchema()  
 	Resources = resources
 	DataSources = dataSources
 }
